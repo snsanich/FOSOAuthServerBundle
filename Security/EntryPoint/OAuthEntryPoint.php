@@ -31,7 +31,7 @@ class OAuthEntryPoint implements AuthenticationEntryPointInterface
     public function start(Request $request, AuthenticationException $authException = null)
     {
         $exception = new OAuth2AuthenticateException(
-            OAuth2::HTTP_UNAUTHORIZED,
+            intval(OAuth2::HTTP_UNAUTHORIZED),
             OAuth2::TOKEN_TYPE_BEARER,
             $this->serverService->getVariable(OAuth2::CONFIG_WWW_REALM),
             'access_denied',
